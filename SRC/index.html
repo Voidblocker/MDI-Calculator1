@@ -1,0 +1,60 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../dist/output.css">
+    <title>BMI Calc</title>
+</head>
+<body>
+    <section class="bg-[url(https://www.bodybuilding.com/images/2021/february/the-truth-about-gender-specific-workouts-header-830x467.jpg)]">
+        <div class="mx-auto flex flex-row justify-center text-4xl py-4 text-[#ef4] mb-6" >
+            <h1>BMI Calculator</h1>
+        </div>
+        <main class="container flex flex-row mx-auto h-screen justify-between space-x-32">
+            <div class=" m p-14 bg-[#101318] bg-opacity-90 rounded-xl w-[50%] h-96">
+                <div>
+                    <div class="mb-4">
+                        <label for="height" class="text-[#D78757]">Height</label>
+                        <input class="bg-transparent border-2 border-opacity-50 ml-4 rounded-md px-3 text-white" min="1"  type="number" placeholder="__cm" id="height" value="">
+                    </div>
+                    <div class="mb-4">
+                        <label for="weight" class="text-[#D78757]">Weight</label>
+                        <input class="bg-transparent border-2 border-opacity-50 ml-4 rounded-md px-3 text-white" min="1"  type="number" id="weight" placeholder="__kg" value="">
+                    </div>
+                    <div class="mb-4">
+                        <label for="Age" class="text-[#D78757] ml-2">Age</label>
+                        <input class="bg-transparent border-2 border-opacity-50 ml-8 rounded-md px-3 text-white" min="1"  type="number" id="Age" placeholder="input your age" value="">
+                    </div>
+                </div>
+                <div class="mt-8 flex flex-col items-center">
+                <button class="bg-[#D78757] text-black hover:text-[#D78757] hover:bg-transparent  px-3 py-1 rounded-lg transition">Check Status</button>
+                </div>
+                
+            </div>
+            <div class="flex flex-col items-center p-14 bg-[#101318] bg-opacity-90 rounded-xl w-[50%] text-white h-96">
+                <h1 class="text-1xl border-b-2 pb-[-1]">Status of Your Body Mass Index</h1>
+                <p class="hidden">Your BMI is <span></span>kg/m<sup>2</sup></p>
+            </div>
+        </main>
+    </section>
+    <script>
+        let btn = document.querySelector('button')
+        function myFunction(){
+        let input = document.querySelectorAll('input')
+        let height = input[0].value
+        let weight = input[1].value
+        let output = (weight / ((height/100)**2))
+        let span = document.querySelectorAll('span')
+        let para = document.querySelectorAll('p')
+        para[0].style.display = 'block'
+        span[0].textContent = Number(output.toFixed(2))
+        // alert(output)
+    }
+    btn.addEventListener('click', myFunction)
+
+
+        
+    </script>
+</body>
+</html>
